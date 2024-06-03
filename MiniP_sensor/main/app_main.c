@@ -262,7 +262,8 @@ void app_main(void)
 
         char str[50];
         int rain = adc1_get_raw(RAIN_PIN);
-        float rain_level = (rain/MAX_RAIN_RAW_VALUE) * MAX_RAIN_LEVEL;
+        float rain_level = ((float)rain/MAX_RAIN_RAW_VALUE) * MAX_RAIN_LEVEL;
+        printf("Rain: %d\n", rain);
         printf("Rain: %0.1f\n", rain_level);
         sprintf(str, "temp:%.1f'C\nhumid:%.1f%%\nrain: %.1fcm\n", 
         temperature, humidity, rain_level);
